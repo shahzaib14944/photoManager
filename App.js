@@ -5,6 +5,7 @@ import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 const App = () => {
   const [photos, setPhotos] = useState([]);
   const [selectedUris, setSelectedUris] = useState([]);
+console.log(selectedUris, "selected");
 
   async function hasAndroidPermission() {
   const getCheckPermissionPromise = () => {
@@ -49,7 +50,7 @@ const App = () => {
     const permissionGranted = await hasAndroidPermission();
     if (permissionGranted) {
       const result = await CameraRoll.getPhotos({
-        first: 4,
+        first: 10,
         assetType: 'All',
       });
       setPhotos(result.edges);
